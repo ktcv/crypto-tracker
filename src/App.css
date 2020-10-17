@@ -1,38 +1,130 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+/* Variables */
+:root {
+  --primary-light: #fafafa;
+  --secondary-light: #dadada;
+  --primary-dark: #1c1c1c;
+  --primary-text: #1c1c1c;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+[data-theme='dark'] {
+  --primary-light: #1c1c1c;
+  --secondary-light: #dadada;
+  --primary-dark: #fafafa;
+  --primary-text: #1c1c1c;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.coin-app {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 64px;
+  padding-bottom: 64px;
+  background-color: var(--primary-dark);
+  color: var(--primary-light);
+}
+
+.dark-mode {
+  background-color: var(--primary-light);
+  color: var(--primary-dark);
+}
+
+.coin-search {
+  margin-bottom: 64px;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-content: center;
 }
 
-.App-link {
-  color: #61dafb;
+.coin-text {
+  margin-bottom: 32px;
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.coin-input {
+  padding-left: 16px;
+  width: 300px;
+  height: 50px;
+  border-radius: 18px;
+  border: 1px solid black;
+  background-color: var(--secondary-light);
+
+  color: var(--primary-text);
+}
+
+.coin-input::placeholder {
+  color: var(--primary-text);
+}
+
+/* Dark mode switch */
+.theme-switch-wrapper {
+  position: absolute;
+  top: 24px;
+  right: 124px;
+  display: flex;
+  align-items: center;
+}
+
+em {
+  margin-left: 10px;
+  font-size: 1rem;
+}
+
+.theme-switch {
+  margin-left: 8px;
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.slider {
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.4s;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: '';
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: 0.4s;
+  width: 26px;
+}
+
+input:checked + .slider {
+  background-color: #66bb6a;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
